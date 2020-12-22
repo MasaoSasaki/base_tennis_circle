@@ -1,6 +1,6 @@
 @extends('../layout')
 @section('content')
 <div class="welcome">
-  <button class="btn btn-primary">ログイン</button>
+  <a class="btn btn-primary" href="posts">ログイン</a>
 </div>
 @endsection
