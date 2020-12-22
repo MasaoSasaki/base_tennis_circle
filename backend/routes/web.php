@@ -20,3 +20,5 @@ Route::get('/', function () {
 Route::group(['middleware' => 'basicauth'], function() {
   Route::get('posts', [PostController::class, 'index']);
 });
+Route::get('posts/create', [PostController::class, 'create']);
+Route::post('posts/upload', [PostController::class, 'upload']);
