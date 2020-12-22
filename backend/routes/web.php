@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostController;
+use App\Http\Controllers\EventController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +18,7 @@ Route::get('/', function () {
   return view('welcome');
 });
 Route::group(['middleware' => 'basicauth'], function() {
-  Route::get('posts', [PostController::class, 'index']);
+  Route::get('events', [EventController::class, 'index']);
 });
-Route::get('posts/create', [PostController::class, 'create']);
-Route::post('posts/upload', [PostController::class, 'upload']);
+Route::get('events/create', [EventController::class, 'create']);
+Route::post('events/upload', [EventController::class, 'upload']);

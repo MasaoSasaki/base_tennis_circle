@@ -5,17 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class PostController extends Controller
+class EventController extends Controller
 {
   public function index()
   {
     $images = Storage::disk('s3')->files('');
-    return view('post/index', compact('images'));
+    return view('event/index', compact('images'));
   }
 
   public function create()
   {
-    return view('post/create');
+    return view('event/create');
   }
 
   public function upload(Request $request)
@@ -30,6 +30,6 @@ class PostController extends Controller
     // $path = Storage::disk('s3')->putFile('/hoge', $file, 'public');
     // ファイル名を指定する場合はputFileAsを利用する
     // $path = Storage::disk('s3')->putFileAs('/', $file, 'hoge.jpg', 'public');
-    return view('post/create');
+    return view('event/create');
   }
 }
