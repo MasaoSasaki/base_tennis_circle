@@ -17,4 +17,6 @@ use App\Http\Controllers\PostController;
 Route::get('/', function () {
   return view('welcome');
 });
-Route::get('posts', [PostController::class, 'index']);
+Route::group(['middleware' => 'basicauth'], function() {
+  Route::get('posts', [PostController::class, 'index']);
+});
