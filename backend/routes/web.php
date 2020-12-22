@@ -17,4 +17,4 @@ use App\Http\Controllers\PostController;
 Route::get('/', function () {
   return view('welcome');
 });
-Route::resource('post', PostController::class)->only(['index']);
+Route::get('posts', [PostController::class, 'index']);

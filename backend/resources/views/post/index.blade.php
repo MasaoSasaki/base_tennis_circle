@@ -1,1 +1,4 @@
-post/index
+@extends('../layout')
+@section('content')
+posts/index
+@endsection

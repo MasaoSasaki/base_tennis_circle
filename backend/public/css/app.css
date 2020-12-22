@@ -1,8 +1,12 @@
+header {
+  text-align: center;
+}
+
 body {
   font-family: "Nunito";
 }
 
-footer small {
+footer {
   text-align: center;
 }
 
