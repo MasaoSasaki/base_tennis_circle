@@ -9,8 +9,8 @@ class PostController extends Controller
 {
   public function index()
   {
-    $path = Storage::disk('s3')->url('lq4S07cBt9ob9wuzfY73T92LA88nUlzaRdVrg10R.png');
-    return view('post/index', compact('path'));
+    $images = Storage::disk('s3')->files('');
+    return view('post/index', compact('images'));
   }
 
   public function create()
@@ -24,7 +24,7 @@ class PostController extends Controller
     $file = $request->file('file');
     // 第一引数はディレクトリの指定
     // 第二引数はファイル
-    // 第三引数はpublickを指定することで、URLによるアクセスが可能となる
+    // 第三引数はpublicを指定することで、URLによるアクセスが可能となる
     $path = Storage::disk('s3')->putFile('/', $file, 'public');
     // hogeディレクトリにアップロード
     // $path = Storage::disk('s3')->putFile('/hoge', $file, 'public');

@@ -1,5 +1,7 @@
 @extends('../layout')
 @section('content')
 posts/index
-<img src="{{ $path }}" alt="">
+@foreach($images as $image)
+  <img src="https://tennis-circle.s3.ap-northeast-1.amazonaws.com/{{ $image }}" alt="">
+@endforeach
 @endsection
