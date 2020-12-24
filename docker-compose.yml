@@ -17,8 +17,7 @@ services:
   db:
     build: ./infra/mysql
     volumes:
-      - db-store:/var/lib/mysql
+      - tennis_circle_db-store:/var/lib/mysql
 
 volumes:
-  db-store:
-    
+  tennis_circle_db-store:
