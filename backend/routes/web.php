@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,7 @@ Route::group(['middleware' => 'basicauth'], function() {
 });
 Route::get('events/create', [EventController::class, 'create']);
 Route::post('events/upload', [EventController::class, 'upload']);
+
+Auth::routes();
+
+Route::get('home', [HomeController::class, 'index']);

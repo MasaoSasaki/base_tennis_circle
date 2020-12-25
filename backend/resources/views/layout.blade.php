@@ -13,6 +13,6 @@
 	<main>
 		@yield('content')
 	</main>
-	<footer><small>©︎ 2020 MasaoSasaki</small></footer>
+	<footer><small><a href="home">©︎ 2020 MasaoSasaki</a></small></footer>
 </body>
 </html>
