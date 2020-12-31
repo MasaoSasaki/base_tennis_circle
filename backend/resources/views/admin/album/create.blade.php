@@ -5,7 +5,7 @@
     <div class="card">
       <div class="card-header">アルバムの作成</div>
         <div class="card-body">
-          <form action="store" method="post" enctype="multipart/form-data">
+          <form action="/admin/albums" method="post" enctype="multipart/form-data">
           {{ csrf_field() }}
           <div class="form-group row">
             <label for="image">イベント画像</label>

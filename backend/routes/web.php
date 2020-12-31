@@ -20,7 +20,7 @@ Route::get('/', function () {
 })->name('root');
 
 Route::group(['middleware' => 'auth'], function() {
-  Route::resource('admin/albums', AdminAlbumController::class)->only(['index', 'create', 'store']);
+  Route::resource('admin/albums', AdminAlbumController::class);
   Route::get('home', [AdminHomeController::class, 'index']);
 });
 
