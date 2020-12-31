@@ -14,8 +14,8 @@
             </div>
           @endif
           <ul>
-            <li><a href="/admin/albums">イベントの一覧</a></li>
-            <li><a href="/admin/albums/create">イベントの追加</a></li>
+            <li><a href="/admin/albums">アルバムの一覧</a></li>
+            <li><a href="/admin/albums/create">アルバムの追加</a></li>
           </ul>
         </div>
       </div>

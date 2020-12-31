@@ -7,8 +7,9 @@
         <div class="card-body">
           <ul>
             @foreach($albums as $album)
-            <li>{{ $album->title }}
-              <a href="/admin/albums/{{ $album->id }}/edit"><i class="far fa-edit fa-fw"></i></a>
+            <li>
+              <a class="title-link" href="/albums/{{ $album->id }}">{{ $album->title }}</a>
+              <a class="edit-link" href="/admin/albums/{{ $album->id }}/edit"><i class="far fa-edit fa-fw"></i></a>
               <form action="/admin/albums/{{ $album->id }}" method="post">
                 {{ csrf_field() }}
                 {{ method_field('delete') }}

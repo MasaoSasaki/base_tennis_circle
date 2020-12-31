@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\Album;
+use Session;
+
 
 class AlbumController extends Controller
 {
@@ -29,7 +31,7 @@ class AlbumController extends Controller
     $album->title = $request->title;
     $album->body = $request->body;
     $album->save();
-    return view('admin/album/create');
+    return redirect('admin/albums')->with('success', '作成が完了しました。');
   }
 
   public function edit($id)
@@ -45,7 +47,7 @@ class AlbumController extends Controller
     $album->body = $request->body;
     $album->save();
     $albums = Album::all();
-    return view('admin/album/index', compact('albums'));
+    return redirect('admin/albums')->with('success', '更新が完了しました。');
   }
 
   public function destroy($id)
@@ -53,7 +55,7 @@ class AlbumController extends Controller
     $album = Album::findOrFail($id);
     $album->delete();
     $albums = Album::all();
-    return redirect('admin/albums');
+    return redirect('admin/albums')->with('success', '削除が完了しました。');
   }
 
   // public function upload(Request $request)

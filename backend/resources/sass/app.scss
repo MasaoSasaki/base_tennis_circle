@@ -21,6 +21,10 @@ main {
     text-align: center;
   }
 
+  .card-header {
+    text-align: center;
+  }
+
   .admin {
 
     &-album-index {
@@ -38,6 +42,14 @@ main {
 
       ul {
         list-style: none;
+
+        .title-link, .edit-link {
+          color: unset;
+        }
+
+        .title-link {
+          text-decoration: underline;
+        }
       }
     }
     &-album-create {

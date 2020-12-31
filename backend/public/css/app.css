@@ -10921,6 +10921,10 @@ main .welcome {
   text-align: center;
 }
 
+main .card-header {
+  text-align: center;
+}
+
 main .admin-album-index {
   text-align: center;
 }
@@ -10937,6 +10941,15 @@ main .admin-album-index form button {
 
 main .admin-album-index ul {
   list-style: none;
+}
+
+main .admin-album-index ul .title-link,
+main .admin-album-index ul .edit-link {
+  color: unset;
+}
+
+main .admin-album-index ul .title-link {
+  text-decoration: underline;
 }
 
 main .admin-album-create {

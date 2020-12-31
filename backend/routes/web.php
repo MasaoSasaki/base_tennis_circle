@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 Route::group(['middleware' => 'auth'], function() {
   Route::resource('admin/albums', AdminAlbumController::class);
-  Route::get('home', [AdminHomeController::class, 'index']);
+  Route::get('admin/home', [AdminHomeController::class, 'index']);
 });
 
 Route::group(['middleware' => 'basicauth'], function() {

@@ -60,6 +60,12 @@
     </header>
 
     <main class="py-4">
+      @if (Session::has('success'))
+        <div class="alert alert-success" role="alert">{{ session('success') }}</div>
+      @endif
+      @if (Session::has('danger'))
+        <div class="alert alert-danger" role="alert">{{ session('danger') }}</div>
+      @endif
       @yield('content')
     </main>
 
