@@ -1,7 +1,7 @@
 @extends('../layouts/app')
 @section('content')
 <div class="container">
-  <div class="admin-event-create">
+  <div class="admin-album-create">
     <div class="card">
       <div class="card-header">アルバムの作成</div>
         <div class="card-body">

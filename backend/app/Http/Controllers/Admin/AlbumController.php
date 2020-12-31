@@ -12,7 +12,8 @@ class AlbumController extends Controller
   public function index()
   {
     logger('index');
-    return view('admin/album/index');
+    $albums = Album::all();
+    return view('admin/album/index', compact('albums'));
   }
 
   public function create()

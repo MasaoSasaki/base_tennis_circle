@@ -10921,7 +10921,15 @@ main .welcome {
   text-align: center;
 }
 
-main .admin-event-create {
+main .admin-album-index {
+  text-align: center;
+}
+
+main .admin-album-index ul {
+  list-style: none;
+}
+
+main .admin-album-create {
   text-align: center;
 }
 

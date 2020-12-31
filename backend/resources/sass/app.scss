@@ -21,8 +21,18 @@ main {
     text-align: center;
   }
 
-  .admin-event-create {
-    text-align: center;
+  .admin {
+
+    &-album-index {
+      text-align: center;
+
+      ul {
+        list-style: none;
+      }
+    }
+    &-album-create {
+      text-align: center;
+    }
   }
 }
 
