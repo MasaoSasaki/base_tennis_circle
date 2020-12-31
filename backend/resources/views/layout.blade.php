@@ -9,7 +9,7 @@
 </head>
 
 <body>
-	<header><h2>テニスサークル</h2></header>
+	<header><h1>Tennis Circle</h1></header>
 	<main>
 		@yield('content')
 	</main>

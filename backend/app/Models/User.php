@@ -12,9 +12,9 @@ class User extends Authenticatable
 {
   use HasFactory, Notifiable;
 
-  public function events()
+  public function albums()
   {
-    return $this->hasMany('App\Models\Event');
+    return $this->hasMany('App\Models\Album');
   }
 
   /**

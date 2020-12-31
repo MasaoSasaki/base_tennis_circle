@@ -10903,6 +10903,12 @@ a.text-dark:focus {
   }
 }
 
+h1 {
+  font-size: 1.2rem;
+  font-family: cursive;
+  margin-bottom: 0;
+}
+
 header {
   text-align: center;
 }
@@ -10915,7 +10921,15 @@ main .welcome {
   text-align: center;
 }
 
-footer {
+main .admin-event-create {
   text-align: center;
+}
+
+footer {
+  padding: 0.5rem 1rem;
+  line-height: 60px;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
 }
 

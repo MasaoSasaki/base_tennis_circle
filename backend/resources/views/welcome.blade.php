@@ -1,6 +1,6 @@
-@extends('../layout')
+@extends('../layouts/app')
 @section('content')
 <div class="welcome">
-  <a class="btn btn-primary" href="events">メンバーログイン</a>
+  <a class="btn btn-primary" href="/albums">メンバーログイン</a>
 </div>
 @endsection

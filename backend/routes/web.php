@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\EventController;
+use App\Http\Controllers\AlbumController;
+use App\Http\Controllers\Admin\AlbumController as AdminAlbumController;
 use App\Http\Controllers\HomeController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,11 +18,11 @@ use App\Http\Controllers\HomeController;
 Route::get('/', function () {
   return view('welcome');
 });
+Route::resource('albums', AdminAlbumController::class)->only(['create', 'store']);
+Route::post('albums/store', [AdminAlbumController::class, 'store']);
 Route::group(['middleware' => 'basicauth'], function() {
-  Route::get('events', [EventController::class, 'index']);
+  Route::resource('albums', AlbumController::class)->only(['index', 'show']);
 });
-Route::get('events/create', [EventController::class, 'create']);
-Route::post('events/upload', [EventController::class, 'upload']);
 
 Auth::routes();
 
