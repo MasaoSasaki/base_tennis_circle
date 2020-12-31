@@ -9,6 +9,12 @@ use App\Models\Album;
 
 class AlbumController extends Controller
 {
+  public function index()
+  {
+    logger('index');
+    return view('admin/album/index');
+  }
+
   public function create()
   {
     logger('create');
@@ -18,7 +24,6 @@ class AlbumController extends Controller
   public function store(Request $request)
   {
     logger($request);
-    // logger(Authenticatable::id());
     $image = $request->file('image');
     // $path = Storage::disk('s3')->putFile('/', $image, 'public');
     $album = new Album;
@@ -26,6 +31,7 @@ class AlbumController extends Controller
     $album->title = $request->title;
     $album->body = $request->body;
     $album->save();
+    logger($album);
     return view('admin/album/create');
   }
 

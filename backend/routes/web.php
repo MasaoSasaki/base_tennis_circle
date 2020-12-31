@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\Admin\AlbumController as AdminAlbumController;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,13 +17,16 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/', function () {
   return view('welcome');
+})->name('root');
+
+Route::group(['middleware' => 'auth'], function() {
+  Route::resource('admin/albums', AdminAlbumController::class)->only(['index', 'create', 'store']);
+  Route::get('home', [AdminHomeController::class, 'index']);
 });
-Route::resource('albums', AdminAlbumController::class)->only(['create', 'store']);
-Route::post('albums/store', [AdminAlbumController::class, 'store']);
+
 Route::group(['middleware' => 'basicauth'], function() {
   Route::resource('albums', AlbumController::class)->only(['index', 'show']);
 });
 
 Auth::routes();
 
-Route::get('home', [HomeController::class, 'index']);
