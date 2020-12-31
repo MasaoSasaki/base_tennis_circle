@@ -26,12 +26,3 @@
   </div>
 </div>
 @endsection
-
-
-<!-- array (
-  '_token' => 'rkVlan6Wl9Gr8WDPDowK9pB9KxKVEPSWsJqkteY6',
-  '_flash' => array ( 'old' => array (), 'new' => array (),),
-  '_previous' => array ( 'url' => 'http://localhost:10080/admin/albums/9/edit',),
-  'login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d' => 1,
-  'message' => 'Hello!',
-  'danger' => 'danger!', -->

@@ -10956,6 +10956,14 @@ main .admin-album-create {
   text-align: center;
 }
 
+main .album-index a {
+  color: unset;
+}
+
+main .album-index img {
+  width: 100%;
+}
+
 footer {
   padding: 0.5rem 1rem;
   line-height: 60px;

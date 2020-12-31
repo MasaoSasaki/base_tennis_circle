@@ -56,6 +56,17 @@ main {
       text-align: center;
     }
   }
+
+  .album-index {
+
+    a {
+      color: unset;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
 }
 
 footer {
