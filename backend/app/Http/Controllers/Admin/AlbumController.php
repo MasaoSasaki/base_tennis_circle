@@ -53,7 +53,7 @@ class AlbumController extends Controller
     $album = Album::findOrFail($id);
     $album->delete();
     $albums = Album::all();
-    return view('admin/album/index', compact('albums'));
+    return redirect('admin/albums');
   }
 
   // public function upload(Request $request)

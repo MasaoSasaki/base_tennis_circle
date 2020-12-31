@@ -28,5 +28,15 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  */
 
 const app = new Vue({
-    el: '#app',
+  el: '#app',
 });
+
+deleteConfirm = () => {
+  if(window.confirm('本当に削除しますか？\nこのアルバムの保存済み写真データも同時に削除されます。')) {
+    alert('削除されました。');
+    return true;
+  } else {
+    alert('キャンセルされました。');
+    return false;
+  }
+};
