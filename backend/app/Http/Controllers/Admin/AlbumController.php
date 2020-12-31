@@ -48,6 +48,14 @@ class AlbumController extends Controller
     return view('admin/album/index', compact('albums'));
   }
 
+  public function destroy($id)
+  {
+    $album = Album::findOrFail($id);
+    $album->delete();
+    $albums = Album::all();
+    return view('admin/album/index', compact('albums'));
+  }
+
   // public function upload(Request $request)
   // {
   //   $image = $request->file('image');

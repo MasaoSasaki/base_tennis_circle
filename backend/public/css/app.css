@@ -10925,6 +10925,16 @@ main .admin-album-index {
   text-align: center;
 }
 
+main .admin-album-index form {
+  display: inline;
+}
+
+main .admin-album-index form button {
+  padding: 0;
+  background: unset;
+  border: unset;
+}
+
 main .admin-album-index ul {
   list-style: none;
 }

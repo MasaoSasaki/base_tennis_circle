@@ -26,6 +26,16 @@ main {
     &-album-index {
       text-align: center;
 
+      form {
+        display: inline;
+
+        button {
+          padding: 0;
+          background: unset;
+          border: unset;
+        }
+      }
+
       ul {
         list-style: none;
       }
