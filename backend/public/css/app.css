@@ -11292,6 +11292,10 @@ main .album-index img {
   width: 100%;
 }
 
+main .album-show img {
+  width: 40%;
+}
+
 footer {
   padding: 0.5rem 1rem;
   line-height: 60px;

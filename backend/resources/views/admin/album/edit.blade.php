@@ -14,7 +14,7 @@
             </div>
             <div class="form-group">
               <label for="body">コメント</label>
-              <textarea class="form-control" type="text" name="body" value="{{ $album->body }}"></textarea>
+              <textarea class="form-control" type="text" name="body">{!! $album->body !!}</textarea>
             </div>
             <button class="btn btn-primary" type="submit">更新</button>
           </form>
@@ -34,6 +34,7 @@
           </div>
           <hr size="10" color="#ccc">
           <div class="delete-images">
+            <p>現在保存されている画像</p>
             <ul>
               @foreach($images as $image)
               <li>

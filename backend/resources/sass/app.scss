@@ -148,14 +148,23 @@ main {
     }
   }
 
-  .album-index {
+  .album {
 
-    a {
-      color: unset;
+    &-index {
+
+      a {
+        color: unset;
+      }
+
+      img {
+        width: 100%;
+      }
     }
+    &-show {
 
-    img {
-      width: 100%;
+      img {
+        width: 40%;
+      }
     }
   }
 }

@@ -14,7 +14,7 @@
             </div>
             <div class="comments">
               <p>コメント：</p>
-              {{ $album->body }}
+              <p>{{ nl2br($album->body) }}</p>
             </div>
           </div>
         </div>

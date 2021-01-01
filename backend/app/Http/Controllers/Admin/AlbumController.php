@@ -56,8 +56,9 @@ class AlbumController extends Controller
   public function destroy($id)
   {
     $album = Album::findOrFail($id);
+    $albumFolder = preg_replace('/\s+|-|:|/', '', $album->created_at);
+    Storage::disk('s3')->deleteDirectory($albumFolder);
     $album->delete();
-    $albums = Album::all();
     return redirect('admin/albums')->with('success', '削除が完了しました。');
   }
 }
