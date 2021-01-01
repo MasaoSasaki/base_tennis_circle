@@ -54,6 +54,38 @@ main {
     }
     &-album-create {
       text-align: center;
+
+      ul {
+        padding: 0;
+        text-align: left;
+        list-style: none;
+
+
+      }
+      #image-preview-list {
+        position: relative;
+
+        li {
+          display: inline;
+
+          img {
+            width: 60px;
+            height: 60px;
+            border-radius: 20%;
+            border: solid 2px #ddd;
+            object-fit: cover;
+          }
+
+          @for $i from 2 to 20 {
+            &:nth-of-type(#{$i}) {
+              position: absolute;
+              top: 0;
+              left: 20px * ($i - 1);
+              z-index: $i;
+            }
+          }
+        }
+      }
     }
   }
 

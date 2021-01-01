@@ -11,7 +11,7 @@
               <a class="title-link" href="/albums/{{ $album->id }}">{{ $album->title }}</a>
               <a class="edit-link" href="/admin/albums/{{ $album->id }}/edit"><i class="far fa-edit fa-fw"></i></a>
               <form action="/admin/albums/{{ $album->id }}" method="post">
-                {{ csrf_field() }}
+                @csrf
                 {{ method_field('delete') }}
                 <button type="submit" onClick="return deleteConfirm();"><i class="far fa-trash-alt fa-fw"></i></button>
               </form>

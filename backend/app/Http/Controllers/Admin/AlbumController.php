@@ -26,11 +26,12 @@ class AlbumController extends Controller
   {
     $image = $request->file('image');
     // $path = Storage::disk('s3')->putFile('/', $image, 'public');
-    $album = new Album;
-    $album->user_id = 1;
-    $album->title = $request->title;
-    $album->body = $request->body;
-    $album->save();
+    logger($request->file('files'));
+    // $album = new Album;
+    // $album->user_id = 1;
+    // $album->title = $request->title;
+    // $album->body = $request->body;
+    // $album->save();
     return redirect('admin/albums')->with('success', '作成が完了しました。');
   }
 

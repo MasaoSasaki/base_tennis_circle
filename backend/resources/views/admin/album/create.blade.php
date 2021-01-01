@@ -3,23 +3,25 @@
 <div class="container">
   <div class="admin-album-create">
     <div class="card">
-      <div class="card-header">アルバムの作成</div>
+      <div class="card-header">アルバムの新規作成</div>
         <div class="card-body">
           <form action="/admin/albums" method="post" enctype="multipart/form-data">
-          {{ csrf_field() }}
-          <div class="form-group row">
-            <label for="image">イベント画像</label>
-            <input type="file" name="image">
-          </div>
-          <div class="form-group row">
+          @csrf
+          <div class="form-group">
             <label for="title">イベント名</label>
-            <input class="from-control" type="text" name="title">
+            <input class="form-control" type="text" name="title">
           </div>
-          <div class="form-group row">
+          <div class="form-group">
             <label for="body">コメント</label>
-            <input class="from-control" type="text" name="body">
+            <textarea class="form-control" name="body"></textarea>
           </div>
-          <button class="btn btn-primary" type="submit">保存</button>
+          <div class="form-group">
+            <label for="image">イベント画像</label>
+            <input id="file-form" class="form-control-file" type="file" name="files[][image]" multiple onChange="previewImage(this);">
+          </div>
+          <ul id="image-preview-list"></ul>
+          <ul id="file-list"></ul>
+          <button id="add-new-album-btn" class="btn btn-primary" type="submit">保存</button>
         </form>
       </div>
     </div>

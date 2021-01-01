@@ -6,7 +6,7 @@
       <div class="card-header">アルバムの編集</div>
         <div class="card-body">
           <form action="/admin/albums/{{ $album->id }}" method="post" enctype="multipart/form-data">
-            {{ csrf_field() }}
+            @csrf
             <input type="hidden" name="_method" value="PUT">
             <div class="form-group row">
               <label for="title">イベント名</label>

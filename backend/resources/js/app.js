@@ -4,6 +4,8 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+const { forEach } = require('lodash');
+
 require('./bootstrap');
 
 window.Vue = require('vue');
@@ -31,6 +33,7 @@ const app = new Vue({
   el: '#app',
 });
 
+// 削除確認メッセージ
 deleteConfirm = () => {
   if(window.confirm('本当に削除しますか？\nこのアルバムの保存済み写真データも同時に削除されます。')) {
     return true;
@@ -39,3 +42,19 @@ deleteConfirm = () => {
     return false;
   }
 };
+
+// アップロード画像プレビュー
+previewImage = (obj) => {
+  document.getElementById('file-list').innerHTML = "";
+  document.getElementById('image-preview-list').innerHTML = "";
+  const files = obj.files;
+  for (let file of files) {
+    let fileReader = new FileReader();
+    document.getElementById('file-list').insertAdjacentHTML('beforeend', `<li>${ file.name }</li>`);
+    fileReader.readAsDataURL(file)
+    fileReader.onload = () => {
+      let dataUrl = fileReader.result;
+      document.getElementById('image-preview-list').insertAdjacentHTML('beforeend', `<li><img src="${dataUrl}"></li>`);
+    };
+  };
+}
