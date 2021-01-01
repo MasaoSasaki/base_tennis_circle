@@ -24,14 +24,15 @@ class AlbumController extends Controller
 
   public function store(Request $request)
   {
-    $image = $request->file('image');
-    // $path = Storage::disk('s3')->putFile('/', $image, 'public');
-    logger($request->file('files'));
-    // $album = new Album;
-    // $album->user_id = 1;
-    // $album->title = $request->title;
-    // $album->body = $request->body;
-    // $album->save();
+    $album = new Album;
+    $album->user_id = 1;
+    $album->title = $request->title;
+    $album->body = $request->body;
+    $album->save();
+    $albumFolder = preg_replace('/\s+|-|:|/', '', $album->created_at);
+    foreach ($request->file('files') as $image) {
+      Storage::disk('s3')->putFile($albumFolder, $image, 'public');
+    }
     return redirect('admin/albums')->with('success', '作成が完了しました。');
   }
 
