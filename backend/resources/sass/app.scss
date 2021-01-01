@@ -59,8 +59,6 @@ main {
         padding: 0;
         text-align: left;
         list-style: none;
-
-
       }
       #image-preview-list {
         position: relative;
@@ -82,6 +80,67 @@ main {
               top: 0;
               left: 20px * ($i - 1);
               z-index: $i;
+            }
+          }
+        }
+      }
+    }
+    &-album-edit {
+      text-align: center;
+
+      .create-images {
+
+        ul {
+          padding: 0;
+          text-align: left;
+          list-style: none;
+        }
+        #image-preview-list {
+          position: relative;
+
+          li {
+            display: inline;
+
+            img {
+              width: 60px;
+              height: 60px;
+              border-radius: 20%;
+              border: solid 2px #ddd;
+              object-fit: cover;
+            }
+
+            @for $i from 2 to 20 {
+              &:nth-of-type(#{$i}) {
+                position: absolute;
+                top: 0;
+                left: 20px * ($i - 1);
+                z-index: $i;
+              }
+            }
+          }
+        }
+      }
+
+      .delete-images {
+        margin-top: 10px;
+
+        ul {
+          padding: 0;
+          display: flex;
+          list-style: none;
+          flex-wrap: wrap;
+
+          li {
+            margin-bottom: 20px;
+            display: inline;
+            flex: 25%;
+
+            img {
+              width: 100px;
+              height: 100px;
+              padding: 5px;
+              border-radius: 20%;
+              object-fit: cover;
             }
           }
         }

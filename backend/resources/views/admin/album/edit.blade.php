@@ -8,16 +8,46 @@
           <form action="/admin/albums/{{ $album->id }}" method="post" enctype="multipart/form-data">
             @csrf
             <input type="hidden" name="_method" value="PUT">
-            <div class="form-group row">
+            <div class="form-group">
               <label for="title">イベント名</label>
-              <input class="from-control" type="text" name="title" value="{{ $album->title }}">
+              <input class="form-control" type="text" name="title" value="{{ $album->title }}">
             </div>
-            <div class="form-group row">
+            <div class="form-group">
               <label for="body">コメント</label>
-              <input class="from-control" type="text" name="body" value="{{ $album->body }}">
+              <textarea class="form-control" type="text" name="body" value="{{ $album->body }}"></textarea>
             </div>
             <button class="btn btn-primary" type="submit">更新</button>
           </form>
+          <hr size="10" color="#ccc">
+          <div class="create-images">
+            <form action="/admin/images" method="post" enctype="multipart/form-data">
+            @csrf
+              <div class="form-group">
+                <label for="image">イベント画像</label>
+                <input id="file-form" class="form-control-file" type="file" name="files[]" multiple onChange="previewImage(this);">
+              </div>
+              <ul id="image-preview-list"></ul>
+              <ul id="file-list"></ul>
+              <input type="hidden" name="id" value="{{ $album['id'] }}">
+              <button id="add-new-album-btn" class="btn btn-primary" type="submit">追加保存</button>
+            </form>
+          </div>
+          <hr size="10" color="#ccc">
+          <div class="delete-images">
+            <ul>
+              @foreach($images as $image)
+              <li>
+                <img src="https://tennis-circle.s3.ap-northeast-1.amazonaws.com/{{ $image }}" alt="">
+                <form action="/admin/images" method="post">
+                  @csrf
+                  <input type="hidden" name="image" value="{{ $image }}">
+                  <input type="hidden" name="id" value="{{ $album['id'] }}">
+                  <button type="submit" onClick="return deleteImageConfirm();" class="btn btn-danger">削除</button>
+                </form>
+              </li>
+              @endforeach
+            </ul>
+          </div>
         </div>
       </div>
     </div>

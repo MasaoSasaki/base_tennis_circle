@@ -42,6 +42,14 @@ deleteConfirm = () => {
     return false;
   }
 };
+deleteImageConfirm = () => {
+  if(window.confirm('本当に削除しますか？')) {
+    return true;
+  } else {
+    alert('キャンセルされました。');
+    return false;
+  }
+};
 
 // アップロード画像プレビュー
 previewImage = (obj) => {

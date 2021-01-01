@@ -6,8 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\Album;
-use Session;
-
 
 class AlbumController extends Controller
 {
@@ -29,6 +27,7 @@ class AlbumController extends Controller
     $album->title = $request->title;
     $album->body = $request->body;
     $album->save();
+    logger($request);
     $albumFolder = preg_replace('/\s+|-|:|/', '', $album->created_at);
     foreach ($request->file('files') as $image) {
       Storage::disk('s3')->putFile($albumFolder, $image, 'public');
@@ -39,7 +38,9 @@ class AlbumController extends Controller
   public function edit($id)
   {
     $album = Album::findOrFail($id);
-    return view('admin/album/edit', compact('album'));
+    $albumFolder = preg_replace('/\s+|-|:|/', '', $album->created_at);
+    $images = Storage::disk('s3')->files($albumFolder);
+    return view('admin/album/edit', compact('images', 'album'));
   }
 
   public function update(Request $request, $id)
@@ -59,11 +60,4 @@ class AlbumController extends Controller
     $albums = Album::all();
     return redirect('admin/albums')->with('success', '削除が完了しました。');
   }
-
-  // public function upload(Request $request)
-  // {
-  //   $image = $request->file('image');
-  //   $path = Storage::disk('s3')->putFile('/', $image, 'public');
-  //   return view('admin/event/create');
-  // }
 }
