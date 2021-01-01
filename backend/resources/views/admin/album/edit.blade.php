@@ -20,7 +20,7 @@
           </form>
           <hr size="10" color="#ccc">
           <div class="create-images">
-            <form action="/admin/images" method="post" enctype="multipart/form-data">
+            <form action="/admin/images/create" method="post" enctype="multipart/form-data">
             @csrf
               <div class="form-group">
                 <label for="image">イベント画像</label>
@@ -39,7 +39,7 @@
               @foreach($images as $image)
               <li>
                 <img src="https://tennis-circle.s3.ap-northeast-1.amazonaws.com/{{ $image }}" alt="">
-                <form action="/admin/images" method="post">
+                <form action="/admin/images/destroy" method="post">
                   @csrf
                   <input type="hidden" name="image" value="{{ $image }}">
                   <input type="hidden" name="id" value="{{ $album['id'] }}">
@@ -49,6 +49,8 @@
               @endforeach
             </ul>
           </div>
+          <hr size="10" color="#ccc">
+          <a href="/admin/albums">一覧へもどる</a>
         </div>
       </div>
     </div>
