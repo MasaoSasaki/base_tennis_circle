@@ -17,7 +17,7 @@
             </div>
             <div class="form-group">
               <label for="image">イベント画像</label>
-              <input id="file-form" class="form-control-file" type="file" name="files[]" multiple onChange="previewImage(this);">
+              <input id="file-form" class="form-control-file" type="file" name="files[]" multiple onChange="previewImages(this);"　accept="image/x-png,　image/gif,　image/jpeg">
             </div>
             <ul id="image-preview-list"></ul>
             <ul id="file-list"></ul>

@@ -52,17 +52,23 @@ deleteImageConfirm = () => {
 };
 
 // アップロード画像プレビュー
-previewImage = (obj) => {
-  document.getElementById('file-list').innerHTML = "";
-  document.getElementById('image-preview-list').innerHTML = "";
+previewImages = (obj) => {
+  const fileList = document.getElementById('file-list');
+  const imagePreviewList = document.getElementById('image-preview-list');
+  fileList.innerHTML = "";
+  imagePreviewList.innerHTML = "";
   const files = obj.files;
-  for (let file of files) {
+  if (files.length === 0) { return }
+  for (let i = 0; i < files.length; i++) {
     let fileReader = new FileReader();
-    document.getElementById('file-list').insertAdjacentHTML('beforeend', `<li>${ file.name }</li>`);
-    fileReader.readAsDataURL(file)
+    fileReader.readAsDataURL(files[i])
+    imagePreviewList.insertAdjacentHTML('beforeend', `<li></li>`);
+    fileList.insertAdjacentHTML('beforeend', `<li></li>`);
     fileReader.onload = () => {
       let dataUrl = fileReader.result;
-      document.getElementById('image-preview-list').insertAdjacentHTML('beforeend', `<li><img src="${dataUrl}"></li>`);
-    };
+      imagePreviewList.children[i].insertAdjacentHTML('afterbegin', `<img src="${ dataUrl }">`);
+      fileList.children[i].insertAdjacentHTML('afterbegin', files[i].name);
+    }
   };
+  imagePreviewList.insertAdjacentHTML('beforeend', `<li><span>+${ files.length }</span></li>`);
 }
