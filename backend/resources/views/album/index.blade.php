@@ -25,7 +25,8 @@
                   @elseif(count($album['images']) === 1)
                     <li style="text-align: center;"><img src="https://tennis-circle.s3.ap-northeast-1.amazonaws.com/{{ $album['images'][array_rand($album['images'])] }}" alt=""><li>
                   </ul>
-                  
+                  @else
+                    <li style="text-align: center;"><img src="https://tennis-circle.s3.ap-northeast-1.amazonaws.com/material/wRvHCVugSkJG2TyjblP70oAZwwL5LKxHfTZ9YQmp.png" alt=""></li>
                 @endif
               </div>
             </a>

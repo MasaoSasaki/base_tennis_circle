@@ -9,6 +9,19 @@ use App\Models\Album;
 
 class ImageController extends Controller
 {
+  public function index()
+  {
+    $images = Storage::disk('s3')->files('material');
+    return view('admin/image/index', compact('images'));
+  }
+
+  public function store(Request $request)
+  {
+    Storage::disk('s3')->putFile('material', $request->file('file'), 'public');
+    return redirect('admin/images')->with('success', '作成が完了しました。');
+  }
+
+  // 外部からのコントロール
   public function createImage(Request $request)
   {
     $id = $request['id'];

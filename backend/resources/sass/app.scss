@@ -91,11 +91,11 @@ main {
       .create-images {
 
         ul {
-          padding: 0;
           text-align: left;
         }
 
         #image-preview-list {
+          padding: 0;
           list-style: none;
           position: relative;
           perspective: 300px;
@@ -165,6 +165,15 @@ main {
               object-fit: cover;
             }
           }
+        }
+      }
+    }
+    &-image-index {
+
+      .images {
+
+        img {
+          width: 30%;
         }
       }
     }

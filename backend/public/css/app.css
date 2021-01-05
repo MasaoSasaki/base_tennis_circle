@@ -11110,11 +11110,11 @@ main .admin-album-edit {
 }
 
 main .admin-album-edit .create-images ul {
-  padding: 0;
   text-align: left;
 }
 
 main .admin-album-edit .create-images #image-preview-list {
+  padding: 0;
   list-style: none;
   position: relative;
   perspective: 300px;
@@ -11304,6 +11304,10 @@ main .admin-album-edit .delete-images ul li img {
   border-radius: 20%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+main .admin-image-index .images img {
+  width: 30%;
 }
 
 main .album-index .card {
