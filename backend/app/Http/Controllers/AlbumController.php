@@ -11,9 +11,12 @@ class AlbumController extends Controller
 {
   public function index()
   {
-    $images = Storage::disk('s3')->files('');
     $albums = Album::all();
-    return view('album/index', compact('images', 'albums'));
+    forEach($albums as $album) {
+      $albumFolder = preg_replace('/\s+|-|:|/', '', $album->created_at);
+      $album['images'] = Storage::disk('s3')->files($albumFolder);
+    }
+    return view('album/index', compact('albums'));
   }
 
   public function show($id)
