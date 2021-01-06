@@ -11,7 +11,7 @@
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body oncontextmenu="return false;" onmousedown="return false;">
+<body oncontextmenu="return false;">
   <div id="app">
     <header>
       <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
@@ -69,7 +69,7 @@
       @yield('content')
     </main>
 
-    <footer><small><a href="/login">©︎ 2020 MasaoSasaki</a></small></footer>
+    <footer><small>©︎ 2020 MasaoSasaki</small></footer>
   </div>
 </body>
 </html>

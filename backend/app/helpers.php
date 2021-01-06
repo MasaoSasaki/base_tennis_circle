@@ -18,4 +18,10 @@ if (! function_exists('hello')) {
   {
     return str_replace([$folderName, '/'], '', $filePath);
   }
+
+  function getFileNameOfFilePath($filePath)
+  {
+    $fileName = strstr($filePath, '/');
+    return str_replace('/', '', $fileName);
+  }
 }

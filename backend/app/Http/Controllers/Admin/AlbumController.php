@@ -27,7 +27,6 @@ class AlbumController extends Controller
     $album->title = $request->title;
     $album->body = $request->body;
     $album->save();
-    logger($request);
     $albumFolder = preg_replace('/\s+|-|:|/', '', $album->created_at);
     foreach ($request->file('files') as $image) {
       Storage::disk('s3')->putFile($albumFolder, $image, 'public');
@@ -38,9 +37,12 @@ class AlbumController extends Controller
   public function edit($id)
   {
     $album = Album::findOrFail($id);
-    $albumFolder = preg_replace('/\s+|-|:|/', '', $album->created_at);
-    $images = Storage::disk('s3')->files($albumFolder);
-    return view('admin/album/edit', compact('images', 'album'));
+    $folderName = getFolderName($album);
+    $filePaths = Storage::disk('s3')->files($folderName);
+    forEach($filePaths as $filePath) {
+      $fileNames[] = getFileNameOfFilePath($filePath);
+    }
+    return view('admin/album/edit', compact('fileNames', 'album', 'folderName'));
   }
 
   public function update(Request $request, $id)

@@ -33,12 +33,12 @@ class ImageController extends Controller
     return redirect("admin/albums/$id/edit")->with('success', '画像を追加保存しました。');
   }
 
-  public function destroyImage(Request $request)
+  public function destroyImage(Request $request, $id)
   {
-    $id = $request['id'];
     $album = Album::findOrFail($id);
-    $albumFolder = preg_replace('/\s+|-|:|/', '', $album->created_at);
-    Storage::disk('s3')->delete($albumFolder, $request['image']);
+    $folderName = getFolderName($album);
+    $fileName = $request['fileName'];
+    Storage::disk('s3')->delete("$folderName/$fileName");
     return redirect("admin/albums/$id/edit")->with('success', '画像を削除しました。');
   }
 }

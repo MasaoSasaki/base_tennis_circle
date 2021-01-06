@@ -36,14 +36,13 @@
           <div class="delete-images">
             <p>現在保存されている画像</p>
             <ul>
-              @foreach($images as $image)
+              @foreach($fileNames as $fileName)
               <li>
-                <img src="https://tennis-circle.s3.ap-northeast-1.amazonaws.com/{{ $image }}" alt="">
-                <form action="/admin/images/destroy" method="post">
+                <img src="https://tennis-circle.s3.ap-northeast-1.amazonaws.com/{{ $folderName }}/{{ $fileName }}" alt="">
+                <form action="/admin/images/{{ $album['id'] }}" method="post" enctype="multipart/form-data">
                   @csrf
-                  <input type="hidden" name="image" value="{{ $image }}">
-                  <input type="hidden" name="id" value="{{ $album['id'] }}">
-                  <button type="submit" onClick="return deleteImageConfirm();" class="btn btn-danger">削除</button>
+                  <input type="hidden" name="fileName" value="{{ $fileName }}">
+                  <button type="submit" class="btn btn-danger">削除</button>
                 </form>
               </li>
               @endforeach
