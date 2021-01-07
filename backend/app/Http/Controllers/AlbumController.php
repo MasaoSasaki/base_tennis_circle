@@ -22,7 +22,7 @@ class AlbumController extends Controller
   public function show($id)
   {
     $album = Album::findOrFail($id);
-    $images = Storage::disk('s3')->files('');
+    $images = Storage::disk('s3')->files(getFolderName($album));
     return view('album/show', compact('images', 'album'));
   }
 }

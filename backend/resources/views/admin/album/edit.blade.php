@@ -42,7 +42,7 @@
                 <form action="/admin/images/{{ $album['id'] }}" method="post" enctype="multipart/form-data">
                   @csrf
                   <input type="hidden" name="fileName" value="{{ $fileName }}">
-                  <button type="submit" class="btn btn-danger">削除</button>
+                  <button type="submit" onClick="return deleteImageConfirm();" class="btn btn-danger">削除</button>
                 </form>
               </li>
               @endforeach

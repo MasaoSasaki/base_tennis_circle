@@ -39,8 +39,9 @@ class AlbumController extends Controller
     $album = Album::findOrFail($id);
     $folderName = getFolderName($album);
     $filePaths = Storage::disk('s3')->files($folderName);
+    $fileNames = array();
     forEach($filePaths as $filePath) {
-      $fileNames[] = getFileNameOfFilePath($filePath);
+      array_push($fileNames, getFileNameOfFilePath($filePath));
     }
     return view('admin/album/edit', compact('fileNames', 'album', 'folderName'));
   }
